@@ -1,0 +1,27 @@
+<h2>Welcome to my first Angular App</h2> 
+<hr />
+<button (click)="applyStyles()">Change Style</button>
+<div [class.styleClass] = "styles">
+    <p>Name: {{fname + ' ' + lname}}</p>
+    <p>Annual Salary: {{salary * 12}}</p>
+    <p>Age: {{age}}</p>
+    <p>{{getDetail()}}</p>
+</div>
+
+<table [class] = "borderClass">
+  <tr>
+    <td>First name</td>
+    <td [innerHTML] = "fname"></td>
+  </tr>
+  <tr>
+    <td>Last name</td>
+    <td [innerHTML] = "lname"></td>
+  </tr>
+  <tr>
+    <td>Salary</td>
+    <td [innerHTML] = "salary"></td>
+  </tr>
+</table>
+<br />
+<button (click)="setBlueBorder()">Blue Border</button>
+<button (click)="setGreenBorder()">Green Border</button>

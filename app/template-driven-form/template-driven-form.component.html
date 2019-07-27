@@ -1,0 +1,33 @@
+<h3>Template Driven Form</h3>
+<form name='myform1' #tvForm="ngForm" (ngSubmit)='tvForm.valid && addComment()'>
+  <div class="form-group">
+    <label>User Name</label>
+    <input type='text'
+           id='username'
+           name='username'
+           class='form-control'
+           #tvUserName='ngModel'
+           [(ngModel)]='postedComment.username'
+           (change)='log(tvUserName)'
+           required
+           minlength="3"
+           maxlength="15" />
+      <div class="alert alert-danger" *ngIf="tvUserName.invalid && tvUserName.touched">
+        <div *ngIf='tvUserName.errors.required'>User name is mandatory</div>
+        <div *ngIf='tvUserName.errors.minlength'>User name should atleast have 3 characters.</div>
+      </div>
+  </div>
+  <div>
+    <label>Comment</label>
+    <textarea id='comment'
+              name='comment'
+              class='form-control'
+              #tvComment='ngModel'
+              [(ngModel)]='postedComment.comment'
+              required
+              minlength="10">
+
+    </textarea>
+  </div>
+  <button class='btn btn-primary' [disabled]='tvForm.invalid'>Submit</button>
+</form>

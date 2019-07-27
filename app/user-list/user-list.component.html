@@ -1,0 +1,8 @@
+<img src='assets/loader.gif' *ngIf="showLoading"/>
+<ul *ngFor="let user of userList">
+  <li>
+    <a (click)='goToDetails(user.id)'> 
+      {{user.name}}
+    </a>
+  </li>
+</ul>

@@ -1,0 +1,26 @@
+<h3>Reactive Form</h3>
+<form name='myform1' [formGroup]='rform' (ngSubmit)='rform.valid && addComment(rform.value)'>
+    <div class="form-group">
+      <label>User Name</label>
+      <input type='text'
+             id='username'
+             name='username'
+             class='form-control'
+             formControlName='username' />
+             
+        <div class="alert alert-danger" *ngIf="rform.controls['username'].invalid && rform.controls['username'].touched">
+          <div *ngIf='rform.controls["username"].errors.required'>User name is mandatory</div>
+          <div *ngIf='rform.controls["username"].errors.minlength'>User name should atleast have 3 characters.</div>
+        </div>
+    </div>
+    <div>
+      <label>Comment</label>
+      <textarea id='comment'
+                name='comment'
+                class='form-control'
+                formControlName='comment'>
+  
+      </textarea>
+    </div>
+    <button class='btn btn-primary' [disabled]='rform.invalid'>Submit</button>
+  </form>
